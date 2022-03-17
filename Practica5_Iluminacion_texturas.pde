@@ -1,12 +1,13 @@
 // Realizado por Martín van Puffelen López
 
-// Animación crecimiento estaciones de alquiler bicicletas desde inicio de año
+// Animación crecimiento estaciones de alquiler bicicletas.
 
 import processing.sound.*;
 PGraphics lienzo;
 PImage img;
 PImage edgeImg;
 boolean playedParty;
+float c=0;
 HashMap<String, float[]> stations;
 
 int xAux=0;
@@ -113,9 +114,13 @@ void draw() {
   if(mode==START_SCREEN){
     image(edgeImg, 0, 0);
     fill(0,0,0);
-    textSize(22);
+    textSize(28);
     text("Evolución alquiler sitycletas", width/3, height/3, 120); 
-    text("Pulsa ESPACIO para iniciar animación", width/4, height/2, 120); 
+    textSize(22);
+    text("Pulsa:", width/4, height/2, 120); 
+    text("ESPACIO para iniciar animación", width/4, height/1.9, 120); 
+    text("ESCAPE para volver al Menú", width/4, height/1.8, 120); 
+    text("R para reiniciar evolución", width/4, height/1.7, 120); 
   
   }
   if(mode==ANIMATION_SCREEN){
@@ -235,6 +240,7 @@ void mouseWheel(MouseEvent event) {
 void reset(){
   x = 0;
   y = 0;
+  c=0;
   zoom=1;
   numStats=10;
   rtelmo=5;rsanta=5;rferia=5;rshana=5;rwoer=5;rnaval=5;rfarray=5;rleon=5;resp=5;rpilar=5;
@@ -257,12 +263,13 @@ void keyPressed(){
 }
 
 void actMapa(){
+  c+=0.28;
   lienzo.beginDraw();
   lienzo.image(img, 0,0,img.width,img.height);
   for(String key: stations.keySet()){
     float mlon = map(stations.get(key)[1], minlon, maxlon, 0, img.width);
     float mlat = map(stations.get(key)[0], maxlat, minlat, 0, img.height);
-    lienzo.fill(0,255,0);
+    lienzo.fill(c,255-c,0);
     float propSizeEllipse=(stations.get(key)[2]/rentalMax)*rMax;
     switch(key){
       case "San Telmo":

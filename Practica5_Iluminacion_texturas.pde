@@ -1,7 +1,6 @@
 // Realizado por Martín van Puffelen López
 
-// Idea animación crecimiento estaciones de alquiler bicicletas desde inicio de año
-// Coger top  alquiler y hacer figuras a tamaño relativo
+// Animación crecimiento estaciones de alquiler bicicletas desde inicio de año
 
 import processing.sound.*;
 PGraphics lienzo;
@@ -46,7 +45,7 @@ void setup() {
   size(800, 800, P3D);
   mode=START_SCREEN;
   stations= new HashMap<String, float[]>();
-  // Coger 10 estaciones con más bicicletas alquiladas
+  // Database containing 10 areas with most rentals in 2021
   estaciones = loadTable("Estaciones Sitycleta.csv", "header" );
   for(TableRow est: estaciones.rows()){
     String estacionName=est.getString("Estación");
@@ -65,7 +64,7 @@ void setup() {
   yPos=-1;
   
 
-  //Imagen del Mapa
+  //Map image
   img=loadImage("map.jpg");
   img.loadPixels();
   // Blur imagen presentación
@@ -91,13 +90,12 @@ void setup() {
   // State that there are changes to edgeImg.pixels[]
   edgeImg.updatePixels();
   
-  //Creamos lienzo par el mapa
   lienzo = createGraphics(img.width ,img.height);
   lienzo.beginDraw();
   lienzo.background(100);
   lienzo.endDraw();
 
-  //Latitud y longitud de los extremos del mapa de la imagen
+  // Map edge coordinates
   minlon = -15.4678;
   maxlon = -15.3545;
   minlat = 28.0946;
@@ -121,24 +119,23 @@ void draw() {
   
   }
   if(mode==ANIMATION_SCREEN){
-    //Desplazamiento con botón izquierdo ratón
+
     if(numStats!=0){
     if (mousePressed && mouseButton == LEFT) {
       x += (mouseX - pmouseX)/zoom;
       y += (mouseY - pmouseY)/zoom;
     }
-    //Coloca origen en el centro
+    
     pushMatrix();
     translate(width/2,height/2,0);
     //Escala según el zoom
     scale(zoom);
-    //Centro de la imagen en el origen
     translate(-img.width/2+x,-img.height/2+y);
     image(lienzo, 0,0);
      actMapa();
      popMatrix();
     }
-     if(numStats==0){
+     if(numStats==0){ // If there are no more areas to explode
          if(!playedParty){
           partySound.play();
           playedParty=true;
@@ -164,7 +161,7 @@ void draw() {
           yPos=-yPos;
         }
         fill(255,248,220);
-        text("Plaza de la feria: 9617", width/4, 590, 0);
+        text("Plaza de la feria: 9617", width/5, 590, 0);
         fill(255,248,220);
         text("Base Naval: 9612", width*0.7, 590, 0);
         fill(255,255,255);
@@ -227,14 +224,14 @@ void visPodium(){
 }
 
 
-//Rueda del ratón para modificar el zoom
+//Zoom 
 void mouseWheel(MouseEvent event) {
   float e = event.getCount();
   zoom -= e/10;
   if (zoom<1)
     zoom = 1;
 }
-
+// Resetting map view 
 void reset(){
   x = 0;
   y = 0;

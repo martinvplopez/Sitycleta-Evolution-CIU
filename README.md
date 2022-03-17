@@ -3,26 +3,24 @@
 ### Práctica  CIU: *Iluminación y texturas*
 ___
 
-#### Introducción
-##### Animación alquileres Sitycleta 2021. 
-##### 
+#### Introducción: Animación alquileres Sitycleta 2021. 
+##### Evolución de las 10 estaciones con más alquileres, cada estación crecerá de tamaño y simulará un mapa de calor hasta explotar. *¿Quién ganará?*
+##### El programa terminará con un podio de las zonas con más alquileres.
 
 #### Instrucciones
-##### Ejecutar programa, pulsar *[ESPACIO]* para ejecutar animación
-##### Entrar en modo "nave" *[ESPACIO]* para navegar y apreciar otras perspectivas del entorno.
+##### Ejecutar programa, apreciar menú principal con mapa en el fondo con efecto *Blur*, pulsar *[ESPACIO]* para empezar animación. Pulsar *[ESCAPE]* si se quiere volver a la pantalla principal y *[R]* para reiniciar la evolución.
+
 
 ![GIF Principal](https://github.com/martinvplopez/Galaxia-Caos-Ship/blob/main/images/presentationGIF.gif)
 
 #### Detalles implementación
-#### Más allá de las herramientas de visibilidad de la práctica anterior (ver sólo satélites o planetas) se ha incluido una nave como cámara libre dirigida por el usuario.
-- ##### **Información**: *Botones Mostrar/Ocultar*, dispone de un buen tamaño, al clicar cambia su estado y a su vez el texto de los cuerpos celestes visibles cambia para aportar un feedback e información extra al usuario. El resto de información serán de tipo texto que se ha intentado añadir de la forma más simple y minimalista.
-- ##### **Color**: Blanco para resaltar de la mejor forma posible.
-- ##### **Texturas**: Se han seleccionado texturas de elementos naturales y primitivos, por ejemplo, arena, agua o roca, para resaltar la idea de sistema hostil y no habitado.
-- ##### **Controles**: *ESPACIO* para activar/desactivar modo nave, y, en el modo nave, las teclas [*W*],[*A*],[*S*],[*D*], [*ARROW-UP*] Y [*ARROW-DOWN*] para el movimiento de la posición de la misma: avanzar, izquierda, retroceder, derecha, subir, bajar. Se han elegido estos controles porque son muy intuitivos. [*R*], tecla de reseteo de la nave, control al usuario y tolerancia a errores.
+- ##### **Información**: *Texto*, dispone de un buen tamaño, fuente legible con buen contraste, diseño minimalista ya que el recorrido de la interfaz no requiere mucha interacción. Estaciones visibles a primera vista.
+- ##### **Color**: Diferentes colores que contrastan con el fondo y el mapa. Al final del programa se ha implementado el dorado como símbolo de victoria y riqueza como promoción de llevar a cabo actividades sostenibles.
+- ##### **Iluminación**: Se ha implementado una serie de luces de ambiente, con el reflejo difuso y especular distinto para cada "miembro" del podio con mayor brillo y atracción al "ganador".
+- ##### **Controles**: Controles de zoom con la rueda del ratón y arrastrar clic izquierdo para mover por el mapa, [*R*], tecla de reinicio, control al usuario y tolerancia a errores. Se han elegido controles estándar para favorecer la intuición del usuario.
 
 #### Posibles modificaciones
-##### El poder seleccionar un sólo objeto y ver sus características ( oxígeno, Co2, etcétera).
-##### Ver la nave desde la vista general.
+##### Transición animada del 2D al 3D.
 
 #### Referencias
 - [Documentación asignatura](https://github.com/otsedom/otsedom.github.io/blob/main/CIU/P5/README.md)

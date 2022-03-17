@@ -248,6 +248,11 @@ void keyPressed(){
   if(key==' ' && mode!=ANIMATION_SCREEN){
     mode=ANIMATION_SCREEN;
   }
+  if(key==ESC){
+    reset();
+    mode=START_SCREEN;
+    key=0;
+  }
 
 }
 
